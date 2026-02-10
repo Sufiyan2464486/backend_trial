@@ -2,7 +2,7 @@
 {
     public class Comment
     {
-        public Guid CommentId { get; set; } = Guid.NewGuid();
+        public Guid CommentId { get; set; } 
 
         public Guid IdeaId { get; set; }
         public Guid UserId { get; set; }

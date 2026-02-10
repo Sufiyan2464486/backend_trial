@@ -40,6 +40,9 @@ namespace backend_trial.Data
                 e.ToTable("Category");
                 e.HasKey(x => x.CategoryId);
 
+                e.Property(x => x.CategoryId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
+
                 e.Property(x => x.Name)
                     .IsRequired()
                     .HasMaxLength(100);
@@ -62,6 +65,9 @@ namespace backend_trial.Data
             {
                 e.ToTable("User");
                 e.HasKey(x => x.UserId);
+
+                e.Property(x => x.UserId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
 
                 e.Property(x => x.Name)
                     .IsRequired()
@@ -92,6 +98,9 @@ namespace backend_trial.Data
             {
                 e.ToTable("Idea");
                 e.HasKey(x => x.IdeaId);
+
+                e.Property(x => x.IdeaId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
 
                 e.Property(x => x.Title)
                     .IsRequired()
@@ -132,6 +141,9 @@ namespace backend_trial.Data
                 e.ToTable("Comment");
                 e.HasKey(x => x.CommentId);
 
+                e.Property(x => x.CommentId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
+
                 e.Property(x => x.Text)
                     .IsRequired();
 
@@ -161,6 +173,9 @@ namespace backend_trial.Data
                 e.ToTable("Vote");
                 e.HasKey(x => x.VoteId);
 
+                e.Property(x => x.VoteId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
+
                 e.Property(x => x.VoteType)
                     .HasConversion(voteTypeConv)
                     .IsRequired()
@@ -187,6 +202,9 @@ namespace backend_trial.Data
             {
                 e.ToTable("Review");
                 e.HasKey(x => x.ReviewId);
+
+                e.Property(x => x.ReviewId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
 
                 e.Property(x => x.Feedback)
                     .IsRequired();
@@ -223,6 +241,9 @@ namespace backend_trial.Data
                 e.ToTable("Notification");
                 e.HasKey(x => x.NotificationId);
 
+                e.Property(x => x.NotificationId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
+
                 e.Property(x => x.Type)
                     .HasConversion(notificationTypeConv)
                     .IsRequired()
@@ -255,6 +276,9 @@ namespace backend_trial.Data
             {
                 e.ToTable("Report");
                 e.HasKey(x => x.ReportId);
+
+                e.Property(x => x.ReportId)
+                    .HasDefaultValueSql("NEWSEQUENTIALID()");
 
                 e.Property(x => x.Scope)
                     .IsRequired()

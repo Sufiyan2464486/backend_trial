@@ -5,7 +5,7 @@ namespace backend_trial.Models.Domain
 {
     public class User
     {
-        public Guid UserId { get; set; } = Guid.NewGuid();
+        public Guid UserId { get; set; } 
         public string Name { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string PasswordHash { get; set; } = null!;

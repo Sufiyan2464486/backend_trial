@@ -10,7 +10,6 @@ namespace backend_trial.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IdeaBoardDbContext _dbContext;

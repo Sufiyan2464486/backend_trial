@@ -2,7 +2,7 @@
 {
     public class Notification
     {
-        public Guid NotificationId { get; set; } = Guid.NewGuid();
+        public Guid NotificationId { get; set; } 
 
         public Guid UserId { get; set; }
 

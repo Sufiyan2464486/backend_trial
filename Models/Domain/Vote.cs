@@ -2,7 +2,7 @@
 {
     public class Vote
     {
-        public Guid VoteId { get; set; } = Guid.NewGuid();
+        public Guid VoteId { get; set; } 
 
         public Guid IdeaId { get; set; }
         public Guid UserId { get; set; }

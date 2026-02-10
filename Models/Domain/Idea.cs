@@ -5,17 +5,13 @@ namespace backend_trial.Models.Domain
 {
     public class Idea
     {
-        public Guid IdeaId { get; set; } = Guid.NewGuid();
-
+        public Guid IdeaId { get; set; } 
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
-
         public Guid CategoryId { get; set; }
         public Guid SubmittedByUserId { get; set; }
-
         public DateTime SubmittedDate { get; set; }
         public IdeaStatus Status { get; set; }
-
         public Category Category { get; set; } = null!;
         public User SubmittedByUser { get; set; } = null!;
 
