@@ -1,6 +1,8 @@
 @backend_trial_HostAddress = http://localhost:5062
 @ideaId = 550e8400-e29b-41d4-a716-446655440000
 @reviewId = 550e8400-e29b-41d4-a716-446655440002
+@userId = 550e8400-e29b-41d4-a716-446655440003
+@userEmail = user@example.com
 @token = your_jwt_token_here
 
 GET {{backend_trial_HostAddress}}/weatherforecast/
@@ -180,5 +182,92 @@ Content-Type: application/json
 DELETE {{backend_trial_HostAddress}}/api/review/{{reviewId}}
 Authorization: Bearer {{token}}
 Content-Type: application/json
+
+###
+
+# ==================== USER MANAGEMENT ENDPOINTS (Admin Only) ====================
+
+# Get all users
+GET {{backend_trial_HostAddress}}/api/usermanagement/users
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Get users by role (Employee, Manager, or Admin)
+GET {{backend_trial_HostAddress}}/api/usermanagement/users/role/Employee
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Get users by status (Active or Inactive)
+GET {{backend_trial_HostAddress}}/api/usermanagement/users/status/Active
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Get user by ID with detailed information
+GET {{backend_trial_HostAddress}}/api/usermanagement/{{userId}}
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Get user by email
+GET {{backend_trial_HostAddress}}/api/usermanagement/email/{{userEmail}}
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Toggle user status (Active/Inactive)
+PUT {{backend_trial_HostAddress}}/api/usermanagement/{{userId}}/status
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "status": "Inactive"
+}
+
+###
+
+# Activate user
+PUT {{backend_trial_HostAddress}}/api/usermanagement/{{userId}}/activate
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+# Deactivate user
+PUT {{backend_trial_HostAddress}}/api/usermanagement/{{userId}}/deactivate
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+# Update user role (Employee, Manager, or Admin)
+PUT {{backend_trial_HostAddress}}/api/usermanagement/{{userId}}/role
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "role": "Manager"
+}
+
+###
+
+# Get user statistics
+GET {{backend_trial_HostAddress}}/api/usermanagement/statistics/summary
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+
+# Search users by name or email
+GET {{backend_trial_HostAddress}}/api/usermanagement/search/John
+Authorization: Bearer {{token}}
+Accept: application/json
 
 ###
